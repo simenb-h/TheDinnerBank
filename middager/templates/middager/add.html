@@ -1,0 +1,30 @@
+
+{% include 'partials/header.html' %}
+<br>
+<form action="{% url 'add' %}" method="post" style="padding-left: 10px; padding-right: 10px;">
+        {% csrf_token %}
+        <div class="input-group">
+        <input type="text" name="title" id="title" placeholder="Title" autocomplete="off">
+        <textarea class="form-control" name="text" id="text" placeholder="Notes"></textarea>
+                </div>
+        
+        <!-- <input type="file" name="bilde" id="bilde" placeholder="Picture"> -->
+
+        <div class="input-group">
+                        <div class="custom-file">
+                          <input type="file" class="custom-file-input" id="image">
+                          <label class="custom-file-label" for="image">Choose file</label>
+                        </div>
+                        <div class="input-group-append">
+                        <!-- <button class="btn btn-dark" type="button">Button</button> -->
+                </div>
+        </div>
+
+        <button type="submit" class="btn btn-dark">Submit</button>
+        <!-- <input class="btn btn-dark" type="button" value="Submit"> -->
+        </form>
+  
+        
+
+
+{% include 'partials/footer.html' %}
