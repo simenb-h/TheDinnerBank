@@ -1,25 +1,14 @@
 {% include 'partials/header.html' %}
 <h1>Middager: </h1>    
 
-<!-- <p>Slide med tilfeldig retter</p> -->
-
 <div class="card-columns">
 
     {% for dinner in dinners %}
-
-        <!-- <div class="text-white bg-dark mb-3">
-            <div class="card-body text-center">
-            <p class="card-text">{{dinner.title}} : {{dinner.text}}</p> 
-           
-          </div>
-        </div> -->
-
-
-        <div class="card">
+        <div class="card text-white bg-info mb-3">
                 <img class="card-img-top" src="static/css/8iG6oj8aT.png" alt="Card image cap">
                 <div class="card-body">
-                <a href="/insp">
-                    <h4 class="card-title" style="color : darkslategrey;">{{dinner.title}}</h4>
+                <a href="/details/{{dinner.id}}">
+                    <h4 class="card-title" style="color : white;">{{dinner.title}}</h4>
                 </a>
                 <p class="card-text">{{dinner.text}}</p>
                 <p class="card-text"><small class="text-muted">Lagt til : {{dinner.date}}</small></p>
@@ -27,9 +16,7 @@
               </div>
        
     {% endfor %}
-       
+    
 </div>
-
- 
 
 {% include 'partials/footer.html' %}

@@ -27,7 +27,7 @@ def add(request):
   
 def index(request):
 
-    dinners = Dinner.objects.all()[:6]
+    dinners = Dinner.objects.all()[::-1]
     context = {
         'dinners' : dinners
     }
@@ -50,3 +50,11 @@ def insp(request):
     return render(request, 'middager/insp.html')
     #return HttpResponse("Inspo")
 
+def details(request, id):
+    dinners = Dinner.objects.get(id=id)
+    context = {
+        'dinners' : dinners
+    }
+    
+    return render(request, 'middager/details.html', context)
+    
