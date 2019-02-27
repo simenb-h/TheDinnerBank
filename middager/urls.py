@@ -13,7 +13,8 @@ urlpatterns = [
     path('', views.index, name='middager'),
     path('add/', views.add, name='add'),
     path('insp/', views.insp, name='insporation'),
-    url(r'^details/(?P<id>\w{0,50})/$',views.details, name='details')
+    url(r'^details/(?P<id>\w{0,50})/$',views.details, name='details'),
+    path('ingrediens', views.ingrediens, name='ingrediens')
 
     #path('success', views.success, name = 'succsess')
 ]
