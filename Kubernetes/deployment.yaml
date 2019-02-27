@@ -1,0 +1,53 @@
+apiVersion: v1
+kind: Namespace
+metadata:
+  name: simen
+---
+apiVersion: v1
+kind: Service
+metadata:
+  namespace: simen
+  name: middagsbanken
+spec:
+  type: NodePort
+  selector:
+    app: middagsbanken
+  ports: 
+    - port: 80
+      targetPort: 8000
+      name: http
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: middagsbanken
+  namespace: simen
+  labels:
+    app: middagsbanken
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: middagsbanken
+  template:
+    metadata:
+      labels:
+        app: middagsbanken
+    spec:
+      containers:
+        - name: frontend
+          image: simenbh/middagsbanken:latest
+          imagePullPolicy: Always
+          ports:
+            - containerPort: 8000
+          resources:
+            limits:
+              cpu: "0.25"
+              memory: "0.5Gi"
+          env:
+          - name: MYSQL_HOST
+            value: "my.sql.somedomain.com"
+---
+2
+---
+deployment 

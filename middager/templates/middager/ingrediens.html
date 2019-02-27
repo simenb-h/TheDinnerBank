@@ -1,0 +1,26 @@
+{% include 'partials/header.html' %}
+
+{% block body %}
+    <form method="post">
+        {% csrf_token %}
+        {{ form.as_p}}
+        <button type="submit"></button>
+    </form>
+{% endblock%}
+
+    {% block content %}
+    {% for middag in middager %}
+        <p>{{middag.title}} </p>   
+        <img src="{{ middag.image }}" alt="bilde">
+    {% endfor %}
+
+  
+
+    {% endblock %}
+
+  
+
+   
+      
+
+{% include 'partials/footer.html' %}
